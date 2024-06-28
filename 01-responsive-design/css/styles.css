@@ -77,7 +77,7 @@ header {
 }
 
 /* Media query para pantallas más pequeñas */
-@media (max-width: 700px) {
+@media (max-width: 650px) {
     .menu-toggle {
         display: block; /* Mostrar hamburguesa en pantallas pequeñas */
     }
@@ -164,7 +164,7 @@ div.owl-nav {
 section.slider1 {
     height: 500px;
     img {
-        height: 500px;
+        height: 700px;
         object-fit: cover;
         width: 100%;
     }
