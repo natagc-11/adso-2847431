@@ -21,7 +21,7 @@ V A R I A B L E S
 G E N E R A L
 --------------------*/
 body {
-    background-color: var(--color2);
+    background-color: var(--color1);
     color: var(--color3);
     margin: 0;
     padding: 0;
