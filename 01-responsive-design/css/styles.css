@@ -1,0 +1,453 @@
+/* --------
+F O N T S
+----------*/
+@import url('fonts.css');
+/* --------
+R E S E T
+----------*/
+@import url('reset.css');
+/* ------------------
+V A R I A B L E S
+--------------------*/
+:root{
+    --font-heading:'montserrat',sans-serif;
+    --font-body:'lexend',sans-serif;
+    --color1:#D9D9D9;
+    --color2:black;
+    --color3:#DEE2E6;
+   }
+   
+/* ------------------
+G E N E R A L
+--------------------*/
+body{
+    background-color: var(--color2);
+    color: var(--color5);
+   
+    main{
+        header{
+            background-color: transparent;
+            width: 100%;
+            position: fixed;
+            z-index: 2;
+            background-color: #171D1D;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-inline: 0.4rem;
+            height: 100px;
+            
+            
+            }
+            nav {
+                display: flex;
+                gap:5rem; }
+                a:is(:link, :visited){
+                    background: transparent url();
+                    color: var(--color3);
+                    font-family: var(--font-heading);
+                    transition: transform 0.s ease-in;
+                    text-decoration: none;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    font-size: 20px;
+                    width: 70px;
+                }
+                a:is(:hover) {
+                    transform: scale(1.2);
+                }
+                
+                }
+                
+  }           
+  div.owl-nav {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    button{
+        transition: all 0.2s ease-in;
+        span{
+            background-color: red;
+            display: flex;
+            height: 100px;
+            width: 100px;
+            text-indent: -9999px;
+            
+        }
+    }
+    button.owl-prev{
+        &:hover{
+            background: transparent !important;
+            transform: translateX(-5px);
+        }
+        span{
+            background: url(../img/Arrow\ 1\ -\ copia.png) no-repeat center;
+        }
+    }
+    button.owl-next{
+        background: transparent;
+
+        &:hover{
+            background: transparent !important;
+            transform: translateX(5px);
+        }
+        span{
+ background: url(../img/Arrow\ 1.png) no-repeat center;        
+          
+}
+}
+}  
+   /* section: slider*/
+                section.slider1{
+                height: 500px;
+            
+                img{
+                    height: 600px;
+                    object-fit: cover;
+                    width: 1000px;
+                }
+                
+                div.owl-nav {
+                    display: flex;
+                    justify-content: space-between;
+                    position: absolute;
+                    width: 100%;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    button{
+                        transition: all 0.2s ease-in;
+                        span{
+                            background-color: red;
+                            display: flex;
+                            height: 100px;
+                            width: 100px;
+                            text-indent: -9999px;
+                            
+                        }
+                    }
+                    button.owl-prev{
+                        &:hover{
+                            background: transparent;
+                            transform: translateX(-5px);
+                        }
+                        span{
+                            background: url(../img/Arrow\ 1\ -\ copia.png) no-repeat center;
+                        }
+                    }
+                    button.owl-next{
+                        background: transparent;
+
+                        &:hover{
+                            background: transparent;
+                            transform: translateX(5px);
+                        }
+                        span{
+                 background: url(../img/Arrow\ 1.png) no-repeat center;        
+                          
+                }
+            }
+        }
+    }
+    div.owl-dots{
+        border: 2px;
+        margin-top: -50px;
+        position: relative;
+        button.owl-dot{
+            span{
+               background-color:white;
+               height: 20px;
+               transition: all 0.4s ease-in;
+               width:20px ;
+             }     
+
+       }    
+       button.owl-dot.active{
+        span{
+            background-color: rgba(255, 255, 255, 0.228);
+        }
+       }
+       button.owl-dot:hover{
+        span{
+            background-color: rgba(255, 255, 255, 0.251);
+            transform: scale(1.2);
+        }
+       }
+
+    }
+                   
+           section.caracteres{
+            background-color: #d9d9d9;
+            color: white;
+            text-align: center;
+            height: 850px;
+            
+            h2{
+                color: black;
+                font-size: 16px;
+                display: flex;
+                align-items: start;
+                justify-content:left;
+                font-family: 'montserrat',sans-serif;
+                text-align: left;
+                margin-left: 4.5rem ;
+                padding-top:12.5rem ;
+                padding-bottom:2.5rem ;
+                font-size: 40px;
+                
+            }
+            div.slider2{
+                 margin-inline: auto;
+                    margin-block: 2rem;
+                    width: 90%;
+                article{
+                   
+                    height: 400px;
+                    figure{
+                        img{
+                            height: 333;
+                            object-fit: contain;
+                            transform: scale(2);
+                            
+                         
+                        }
+                        
+             }
+             figcaption {
+                font-family: 'lexend',sans-serif;
+                 color: white;
+                 justify-content: center;
+                display: flex;
+                align-items: center;
+                font-size: 24px;
+                height: 200px;
+                position: absolute;
+                top: 300px;
+                right: 120px;
+                color: white;
+                transform: translate(-50%, -50%);
+                backdrop-filter: blur();
+         } }}}
+          section.innovacion{
+            background-color: #d9d9d9;
+            color: white;
+            text-align: center;
+            height: 850px;
+            
+            
+            h2{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family: var(--font-heading);
+                font-size: 40px;
+                margin-left: 2.5rem;
+                padding-top: 80px;
+                width: 296px;
+            }
+           
+            div.slider3 {
+                margin-inline: auto;
+                margin-block: 4rem;
+                width: 90%;
+
+                article {
+                    display: flex;
+                    height: 400px;
+                    figure {
+                        width: 45%;
+                        img {
+                            height: 300px;
+                            object-fit: cover;
+                            
+                        }
+                        figcaption {
+                            background-color: var(--color1);
+                            color: var(--color4);
+                            font-family: var(--font-heading);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 24px;
+                            height: 100px;
+                        }
+                    }
+                   
+                       
+                    }
+                }
+            }
+            section.innovacion{
+                background-color: #d9d9d9;
+                color: white;
+                text-align: center;
+                height: 850px;
+                
+                
+                h2{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    font-family: var(--font-heading);
+                    font-size: 50px;
+                    margin-left: 2.5rem;
+                    padding-top: 80px;
+                    width: 296px;
+                }
+               
+                div.slider3 {
+                    margin-inline: auto;
+                    margin-block: 4rem;
+                    width: 90%;
+    
+                    article {
+                        display: flex;
+                        height: 400px;
+                        figure {
+                            width: 45%;
+                            img {
+                                height: 300px;
+                                object-fit: cover;
+                            }
+                            figcaption {
+                                background-color: var(--color1);
+                                color: var(--color4);
+                                font-family: var(--font-heading);
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 24px;
+                                height: 100px;
+                            }
+                        }
+                       
+                           
+                        }
+                    }
+                }
+            
+             
+        
+         /* Section: articulos */
+section.articulos {
+    background-color: #d9d9d9;
+            color: white;
+            text-align: center;
+            height: 900px;
+    height: 740px;
+}
+
+section.articulos h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-body);
+    font-size: 50px;
+    text-align: center;
+    margin-left: 3rem;
+    padding-top: 3rem;
+    width: 338px;
+    padding-top: 6.5rem;
+    
+    padding-left: 45rem;
+    white-space: nowrap;
+}
+
+section.articulos .slider4 {
+    display: flex;
+    justify-content: center; 
+    margin-top: 2rem; 
+}
+
+section.articulos .slider4 article {
+    width: 80%; 
+    margin: 0 1rem; 
+}
+
+section.articulos .slider4 article figure {
+    text-align: center;
+    margin-bottom: 1rem; 
+}
+
+section.articulos .slider4 article figure img {
+    height: 160px; 
+    width: 160px;
+    object-fit: cover;
+    border-radius: 0%; 
+    margin-bottom: 10px; 
+    margin-left: 90px;
+    cursor: pointer;
+                opacity: 2;
+                transition: all 0.2s ease-in;
+                &:hover {
+                    opacity: 5;
+                    transform: scale(1.09);
+                }
+}
+
+section.articulos .slider4 article figcaption {
+    background-color: #ffffff; 
+    font-family: var(--font-heading);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    height: 80px;
+    border-radius: 0 0 10px 10px; 
+}
+
+
+
+/* Estilo Botón */
+section.articulos .btn {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 60px;
+    background-color: #f7f7f7;
+    color: rgb(0, 0, 0);
+    border-radius: 8% rgb(255, 255, 255);
+    font-size: 18px;
+    border-radius: 30px;
+    margin: 2rem auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+        
+   
+    /* Section: Footer */
+    section.footer {
+        
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        flex-direction: column;
+        gap: 5rem;
+        background-color: #A1A1A1;
+        height: 200px;
+        figure {
+            display: flex;
+            gap: 1.5rem;
+            padding-bottom: 2rem;
+            img {
+                cursor: pointer;
+                opacity: 0.7;
+                transition: all 0.4s ease-in;
+                &:hover {
+                    opacity: 1;
+                    transform: scale(1.05);
+                }
+                
+            }
+        }
+        p {
+            font-family: var(--font-body);
+            padding-bottom: 1rem;
+   
+   }}

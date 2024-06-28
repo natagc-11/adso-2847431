@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple</title>
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <main>
+        <a name="home"></a>
+        <!--Navbar-->
+        <header>
+            <img src="img/LOGO.png" alt="logo">
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#caracteres">Caracteres</a>
+                <a href="#innovacion">Innovacion</a>
+                <a href="#articulos">Articulos</a>
+            </nav>
+        </header>
+        <!--slider-->
+        <section class="slider1 owl-carousel owl-theme">
+            <img src="img/slider01.png" alt="slider01">
+            <img src="img/slider01.png" alt="slider02">
+            <img src="img/slider01.png" alt="slider03">
+        </section>
+        <!--fotos-->
+        <section class="caracteres">
+            <a name="caracteres"></a>
+            <h2>Descubre el Iphone</h2>
+            <div class="slider2 owl-carousel owl-theme" >
+            
+                <figure>
+                    <img src="img/img1.png" alt="Ponle estilo a cada detalle">
+                    <figcaption> </figcaption>
+                </figure>
+            </article>
+                <figure>
+                    <img src="img/img2.png" alt="Larga vida a la bateria">
+                    <figcaption></figcaption>
+                </figure>
+            </article>
+                <figure>
+                    <img src="img/img3.png" alt="">
+                <figcaption></figcaption>
+                </figure>
+            </article>
+                <figure>
+                    <img src="img/img4.png" alt="">
+                    <figcaption></figcaption>
+                </figure>
+            </article>
+            <figure>
+                <img src="img/img3.png" alt="">
+                <figcaption></figcaption>
+            </figure>
+        </article>
+        </div>
+<!--fotos 2 section-->
+        <section class="innovacion">
+            <a name="innovacion"></a>
+            <h2>Innovacion</h2>
+            <div class="slider3 owl-carousel owl-theme" >
+            
+                <figure>
+                    <img src="img/celular1.png" alt="Ponle estilo a cada detalle">
+                    <figcaption> </figcaption>
+                </figure>
+            </article>
+                <figure>
+                    <img src="img/leyendacel1.png" alt="Larga vida a la bateria">
+                    <figcaption></figcaption>
+                </figure>
+            </article>
+                <figure>
+                    <img src="img/cel2.png" alt="">
+                <figcaption></figcaption>
+                </figure>
+            </article>
+                <figure>
+                    <img src="img/innovacion 2.png" alt="">
+                    <figcaption></figcaption>
+                </figure>
+            </article>
+            </div>
+
+            <!--Articulos-->
+
+        <section class="articulos">
+            <a name="articulos"></a>
+            <div>
+                <h2>
+                    Articulos que Destacan
+                </h2>
+                <div class="slider4 owl-carousel owl-theme">
+                    <article>
+                        <figure>
+                            <img src="img/Rectangle 22.png" alt="">
+                            <img src="img/Rectangle 23.png" alt="">
+                        </figure>
+                    </article>
+                    <article>
+                        <figure>
+                            <img src="img/Rectangle 24.png" alt="">
+                            <img src="img/Rectangle 25.png" alt="">
+                        </figure>
+                    </article>
+                    <article>
+                        <figure>
+                            <img src="img/Rectangle 26.png" alt="">
+                            <img src="img/Rectangle 27.png" alt="">
+                        </figure>
+                    </article>
+                    <article>
+                        <figure>
+                            <img src="img/Rectangle 28.png" alt="">
+                            <img src="img/Rectangle 29.png" alt="">
+                        </figure>
+                    </article>
+                </div>
+                <h1>
+                    <button class="btn">
+                        Ver Mas
+                    </button>
+                </h1>
+            </div>
+        </section>
+
+           <section class="footer"> <!-- Footer -->
+            <footer>
+                <figure class="social">
+                    <img src="img/Vector (1).png" alt="Icon01">
+                    <img src="img/Frame.png" alt="Icon02">
+                    <img src="img/Vector.png" alt="Icon03">
+                   
+                </figure>
+                <p>© All rights reserved 2024</p>
+            </footer></section>
+            <!--  -->
+
+       
+
+    </main>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.slider1').owlCarousel({
+                stagePadding: 0,
+                items: 1,
+                loop: true,
+                nav: true
+            })
+            $('.slider2').owlCarousel({
+                loop: true,
+                margin:10,
+                dots:false,
+                nav: true,
+                responsive:{
+                    0:{
+                        items:1 
+                    },
+                    700:{
+                        items:2
+                    },
+
+                    1000:{
+                        items:4
+                    }
+                    
+                }
+            })
+            $('.slider3').owlCarousel({
+                loop: true,
+                margin:10,
+                dots:false,
+                nav: true,
+                responsive:{
+                    0:{
+                        items:1 
+                    },
+                    700:{
+                        items:2
+                    },
+
+                    1200:{
+                        items:4
+                    }
+                    
+        }}) 
+        $('.slider4').owlCarousel({
+                loop: true,
+                margin:10,
+                dots:false,
+               
+                responsive:{
+                    0:{
+                        items:2
+                    },
+                    600:{
+                        items:3
+                    },
+
+                    1000:{
+                        items:4
+                    }}})})
+                 
+    </script>
+</body>
+</html>
