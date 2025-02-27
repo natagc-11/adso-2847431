@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02- Javascript (API)</title>
+    <link rel="stylesheet" href="../css/master.css">
+    
+    <style>
+        section.characters {
+            display: grid;
+            grid-template-columns: repeat(5, 220px);
+            margin: 2rem 0 5rem 0;
+            gap: 1rem;
+        }
+
+        div.character {
+            border: 4px solid #fff;
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden;
+            height: 220px;
+            width: 220px;
+            article,
+            img {
+                position: absolute;
+            }
+
+            article {
+                background-color: #000c;
+                z-index: 1;
+                bottom: -100px;
+                padding: 0.4rem;
+                transition: bottom 0.4s ease-in;
+                width: 100%;
+            }
+
+            article h4,
+            h5 {
+                color: #fff;
+            }
+
+            .Alive {
+                color: #adff2f;
+            }
+
+            .Dead {
+                color: #dc143c;
+            }
+
+            button.btn-show {
+                border: none;
+                border-radius: 20px;
+                cursor: pointer;
+                padding: 0.1rem 0.4rem;
+                transition: transform 0.2s ease-in;
+                font-size: 0.8rem;
+            }
+
+            &:hover article {
+                bottom: 0;
+            }
+
+            img {
+                object-fit: cover;
+            }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+        }
+
+        .modal-content {
+            background-color: #000000a3;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #5a5a5a;
+            width: 60%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .close-btn {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 1180px) {
+            section.characters {
+                grid-template-columns: repeat(4, 220px);
+            }
+        }
+
+        @media screen and (max-width: 968px) {
+            section.characters {
+                grid-template-columns: repeat(3, 220px);
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            section.characters {
+                grid-template-columns: repeat(2, 220px);
+            }
+        }
+    </style>
+</head>
+
+<body class="level3">
+    <nav>
+        <a href="../index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+            </svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>02- Javascript (API)</h1>
+            <h2>Consumir servicio por medio de JS</h2>
+        </header>
+        <section class="characters"></section>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-name"></h2>
+            <img id="modal-image" src="" alt="" style="width: 100%; margin-bottom: 10px;">
+            <p><strong>Status:</strong> <span id="modal-status"></span></p>
+            <p><strong>Species:</strong> <span id="modal-species"></span></p>
+            <p><strong>Gender:</strong> <span id="modal-gender"></span></p>
+            <p><strong>Origin:</strong> <span id="modal-origin"></span></p>
+            <p><strong>Episodes:</strong> <span id="modal-episodes"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // Elements
+        const characters = document.querySelector('.characters');
+        const modal = document.getElementById('modal');
+        const closeBtn = document.querySelector('.close-btn');
+
+        // Fetch All Characters
+        const fetchCharacters = async () => {
+            for (let i = 1; i <= 20; i++) {
+                const url = 'https://rickandmortyapi.com/api/character/' + i;
+                await fetch(url)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        characters.innerHTML += `
+                            <div class="character">
+                                <article>
+                                    <h4>${data.name.substring(0, 16)}</h4>
+                                    <h5 class="${data.status}">${data.status}</h5>
+                                    <button class="btn-show" data-id="${data.id}">Show +</button>
+                                </article>
+                                <img src="${data.image}" alt="${data.name}">
+                            </div>`;
+                    });
+            }
+            addClickEvents();
+        };
+
+        function addClickEvents() {
+            const btnShow = document.querySelectorAll('.btn-show');
+            btnShow.forEach(element => {
+                element.addEventListener('click', async function () {
+                    const characterId = this.getAttribute('data-id');
+                    const characterData = await fetch(`https://rickandmortyapi.com/api/character/${characterId}`)
+                        .then((response) => response.json());
+
+                    // Set modal content (including image and info)
+                    document.getElementById('modal-name').textContent = characterData.name;
+                    document.getElementById('modal-status').textContent = characterData.status;
+                    document.getElementById('modal-species').textContent = characterData.species;
+                    document.getElementById('modal-gender').textContent = characterData.gender;
+                    document.getElementById('modal-origin').textContent = characterData.origin.name;
+                    document.getElementById('modal-image').src = characterData.image; // Set image URL
+
+                    // Fetch and display episodes
+                    const episodeList = await Promise.all(
+                        characterData.episode.map(async (url) => {
+                            const episodeId = url.split("/").pop(); // Extract the episode ID from the URL
+                            const episodeData = await fetch(`https://rickandmortyapi.com/api/episode/${episodeId}`)
+                                .then((response) => response.json());
+                            return episodeData.name; // Return the episode name
+                        })
+                    );
+
+                    // Display episodes as a comma-separated string
+                    document.getElementById('modal-episodes').textContent = episodeList.join(", ");
+
+                    // Show modal
+                    modal.style.display = "block";
+                });
+            });
+        }
+
+        // Close modal when clicking on the close button
+        closeBtn.addEventListener('click', function () {
+            modal.style.display = "none";
+        });
+
+        // Close modal if clicked outside the modal-content
+        window.addEventListener('click', function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        // Fetch characters on load
+        fetchCharacters();
+    </script>
+</body>
+
+</html>
